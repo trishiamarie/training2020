@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.77Global.org/flightlist"
+		xmlns:tns="http://www.77Global.org/flightlist" 
+		elementFormDefault="qualified">
+		
+		
+		<!-- Declaring root as a complex type -->
+		<xs:element name="flightlist">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="flight" minOccurs="1" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+							
+								<xs:element name="passengers" minOccurs="1" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+										
+											<xs:element name="passenger" minOccurs="1" maxOccurs="unbounded">
+												<xs:complexType>
+												
+												<!-- Declaring attributes of passenger -->
+												
+													<xs:attribute name="name" use="required">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:maxLength value="15"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													
+													<xs:attribute name="seat" use="required">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+															<xs:pattern value="[0-9A-Z]{2}"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													
+												</xs:complexType>
+											</xs:element>
+											
+										</xs:sequence>
+										
+										<!-- Declaring attributes of passengers -->
+										
+										<xs:attribute name="date" use="required">
+											<xs:simpleType>
+												<xs:restriction base="xs:date">
+													<xs:enumeration value="2012-12-04"/>
+													<xs:enumeration value="2012-12-05"/>
+													<xs:enumeration value="2012-12-06"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+										
+									</xs:complexType>
+								</xs:element>	
+													
+							</xs:sequence>
+							
+							<!-- Declaring attributes of flight -->
+							
+							<xs:attribute name="number" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="2"/>
+										<xs:enumeration value="3"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							
+							<xs:attribute name="origin" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="BOS"/>
+										<xs:enumeration value="SFO"/>
+										<xs:enumeration value="NYC"/>
+										<xs:pattern value="[A-Z]+"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							
+							<xs:attribute name="dest" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="SJU"/>
+										<xs:enumeration value="JFK"/>
+										<xs:enumeration value="MRY"/>
+										<xs:pattern value="[A-Z]+"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							
+						</xs:complexType>
+					</xs:element>
+					
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+</xs:schema>

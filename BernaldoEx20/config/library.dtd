@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- declaring all of the elements -->
+<!ELEMENT library (book | journal | misc)*>
+<!ELEMENT book (title, editor, publisher)>
+<!ELEMENT journal (title, volume)>
+<!ELEMENT misc (author+, title, year, pages)>
+
+<!-- declaring all of the sub-elements of book -->
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT editor (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+
+<!-- declaring all of the sub-elements of journal -->
+<!ELEMENT volume (#PCDATA | number)*>
+
+<!-- declaring all of the sub-elements of volume -->
+<!ELEMENT number (#PCDATA)>
+
+<!-- declaring all of the sub-elements of misc -->
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT pages (#PCDATA)>
+
+<!-- declaring added attributes in element: book, journal and misc -->
+<!ATTLIST book id CDATA #REQUIRED>
+<!ATTLIST journal id CDATA #REQUIRED>
+<!ATTLIST journal publ_year CDATA #REQUIRED>
+<!ATTLIST misc id1 CDATA #REQUIRED>
+<!ATTLIST misc id2 CDATA #REQUIRED>
+

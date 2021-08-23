@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- declaring all of the elements -->
+<!ELEMENT flightlist (flight+)>
+<!ELEMENT flight (passengers+)>
+<!ELEMENT passengers (passenger+)>
+<!ELEMENT passenger EMPTY>
+
+<!-- declaring added attributes in element: flight -->
+<!ATTLIST flight number (1 | 2 | 3) #REQUIRED>
+<!ATTLIST flight origin (BOS | SFO | NYC) #REQUIRED>
+<!ATTLIST flight dest (SJU | JFK | MRY) #REQUIRED>
+
+<!-- declaring added attributes in element: passengers -->
+<!ATTLIST passengers date (12-4-2012 | 12-5-2012 | 12-5-2012 | 12-6-2012) #REQUIRED>
+
+<!-- declaring added attributes in element: passenger -->
+<!ATTLIST passenger name CDATA #REQUIRED>
+<!ATTLIST passenger seat CDATA #REQUIRED>
